@@ -1,0 +1,7 @@
+environments = ["d", "t", "u", "p"]
+location-prod = "australiaeast"
+location-dr = "au"
+company-name = "sa"
+rg-name = "networking"
+vnet-name = "spoke"
+address_space = ["10.100.0.0/16"]
