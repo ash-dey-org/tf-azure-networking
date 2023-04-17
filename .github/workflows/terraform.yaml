@@ -39,13 +39,20 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Log in to Azure using OIDC
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
       - name: set environment variables
         run: |
           echo "TF_WORKSPACE=${{github.event.repository.name}}-$deploy" >> $GITHUB_ENV
           echo "TF_CLOUD_ORGANIZATION=${{vars.TF_CLOUD_ORGANIZATION}}" >> $GITHUB_ENV
-          echo "ARM_CLIENT_ID=${{secrets.ARM_CLIENT_ID}}" >> $GITHUB_ENV
-          echo "ARM_SUBSCRIPTION_ID=${{secrets.ARM_SUBSCRIPTION_ID}}" >> $GITHUB_ENV
-          echo "ARM_TENANT_ID=${{secrets.ARM_TENANT_ID}}" >> $GITHUB_ENV
+#          echo "ARM_CLIENT_ID=${{secrets.ARM_CLIENT_ID}}" >> $GITHUB_ENV
+#          echo "ARM_SUBSCRIPTION_ID=${{secrets.ARM_SUBSCRIPTION_ID}}" >> $GITHUB_ENV
+#          echo "ARM_TENANT_ID=${{secrets.ARM_TENANT_ID}}" >> $GITHUB_ENV
 
 #          echo "TF_VAR_organization=${{vars.TF_CLOUD_ORGANIZATION}}" >> $GITHUB_ENV
 #          echo "TF_VAR_project=$(cat project_name.txt)" >> $GITHUB_ENV
