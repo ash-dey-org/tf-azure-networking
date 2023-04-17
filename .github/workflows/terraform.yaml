@@ -16,8 +16,11 @@ on:
       - main
   workflow_dispatch:
 
-jobs:
+permissions:
+  id-token: write
+  contents: read
 
+jobs:
 
   plan_dev:
     name: plan on pull request to develop branch
@@ -40,6 +43,10 @@ jobs:
         run: |
           echo "TF_WORKSPACE=${{github.event.repository.name}}-$deploy" >> $GITHUB_ENV
           echo "TF_CLOUD_ORGANIZATION=${{vars.TF_CLOUD_ORGANIZATION}}" >> $GITHUB_ENV
+          echo "ARM_CLIENT_ID=${{secrets.ARM_CLIENT_ID}}" >> $GITHUB_ENV
+          echo "ARM_SUBSCRIPTION_ID=${{secrets.ARM_SUBSCRIPTION_ID}}" >> $GITHUB_ENV
+          echo "ARM_TENANT_ID=${{secrets.ARM_TENANT_ID}}" >> $GITHUB_ENV
+
 #          echo "TF_VAR_organization=${{vars.TF_CLOUD_ORGANIZATION}}" >> $GITHUB_ENV
 #          echo "TF_VAR_project=$(cat project_name.txt)" >> $GITHUB_ENV
 #          echo "TFE_TOKEN=${{secrets.TF_API_TOKEN}}" >> $GITHUB_ENV
