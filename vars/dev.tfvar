@@ -1,5 +1,5 @@
 environments = ["d", "t", "u", "p"]
-location-prod = "australiaeast"
+location-prod = "auea"
 location-dr = "au"
 company-name = "sa"
 rg-name = "networking"
