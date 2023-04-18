@@ -1,4 +1,4 @@
-environments = ["d", "t", "u", "p"]
+environments = ["d", "t", "u"]
 location-prod = "auea"
 location-dr = "au"
 company-name = "sa"
