@@ -3,11 +3,6 @@ variable "environments" {
   type        = string
 }
 
-variable "location-prod" {
-  description = "Name of the Azure region"
-  type        = string
-}
-
 variable "company-name" {
   description = "Name of the company"
   type        = string
