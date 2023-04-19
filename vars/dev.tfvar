@@ -1,7 +1,8 @@
-environments = ["d", "t", "u"]
-location-prod = "auea"
-location-dr = "au"
+environments = "d"
+location = "auea"
+location-dr = "ause"
 company-name = "sa"
 rg-name = "networking"
 vnet-name = "spoke"
 address_space = ["10.100.0.0/16"]
+address_space-dr = ["10.200.0.0/16"]
