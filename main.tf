@@ -2,7 +2,7 @@ module "vnet" {
   source = "./modules/vnet"
 
   env           = var.environments
-  location      = var.location-prod
+  location      = var.location
   company-name  = var.company-name
   address_space = var.address_space
   rg-name       = var.rg-name
