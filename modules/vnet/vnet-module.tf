@@ -1,17 +1,14 @@
 # https://registry.terraform.io/modules/Azure/vnet/azurerm/latest
 
-data "azurerm_resource_group" "vnet" {
-  name     = "${var.env}-${var.location}-${var.company-name}-rg-${var.rg-name}"
-  # location = var.location
-}
-
 resource "azurerm_virtual_network" "vnet" {
-  name                = "${var.env}-${var.location}-${var.company-name}-vn-${var.vnet-name}"
-  resource_group_name = data.azurerm_resource_group.vnet.name
-  location            = var.vnet_location != null ? var.vnet_location : data.azurerm_resource_group.vnet.location
+
+  name                = var.vnet-name
+  resource_group_name = var.rg-name
+  location            = var.location
   address_space       = var.address_space
-  dns_servers         = var.dns_servers
-  tags                = merge(var.common_tags, var.extra_tags)
+  # dns_servers         = var.dns_servers
+  tags = var.tags
+
 }
 
 /*
